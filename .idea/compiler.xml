@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="spring-security" />
+        <module name="spring-security-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="spring-security" target="1.5" />
+      <module name="spring-security-demo" target="1.8" />
       <module name="Study-Demo" target="1.5" />
     </bytecodeTargetLevel>
   </component>

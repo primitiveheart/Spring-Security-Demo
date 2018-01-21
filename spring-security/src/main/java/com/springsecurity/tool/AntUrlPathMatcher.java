@@ -20,19 +20,33 @@ public class AntUrlPathMatcher implements UrlMatcher {
         this.requiresLowerCaseUrl = requiresLowerCaseUrl;
     }
 
-    public Object compile(String paramString) {
-        return null;
+    public Object compile(String path) {
+        if(this.requiresLowerCaseUrl){
+            return path.toLowerCase();
+        }
+        return path;
     }
 
-    public boolean pathMatchesUrl(Object paramObject, String paramString) {
-        return false;
+    public void setRequiresLowerCaseUrl(boolean requiresLowerCaseUrl) {
+        this.requiresLowerCaseUrl = requiresLowerCaseUrl;
+    }
+
+    public boolean pathMatchesUrl(Object path, String url) {
+        if("/**".equals(path) || "**".equals(path)){
+            return true;
+        }
+        return this.pathMatcher.match((String) path,url);
     }
 
     public String getUniversaMatchPattern() {
-        return null;
+        return "/**";
     }
 
     public boolean requiresLowerCaseUrl() {
-        return false;
+        return this.requiresLowerCaseUrl;
+    }
+
+    public String toString(){
+        return super.getClass().getName() + "[requiresLowerCase="+this.requiresLowerCaseUrl+"]";
     }
 }

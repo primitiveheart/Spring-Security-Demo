@@ -9,20 +9,38 @@
   <name>Study-Demo Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+  </properties>
+
   <modules>
     <module>spring-security</module>
   </modules>
 
+
   <dependencyManagement>
     <dependencies>
+
       <dependency>
         <groupId>com.example</groupId>
         <artifactId>spring-security</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
+
+
     </dependencies>
   </dependencyManagement>
+
   <build>
     <finalName>Study-Demo</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
 </project>

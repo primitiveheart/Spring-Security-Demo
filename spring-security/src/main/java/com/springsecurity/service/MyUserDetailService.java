@@ -2,6 +2,7 @@ package com.springsecurity.service;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +24,8 @@ public class MyUserDetailService implements UserDetailsService {
             auths.add(auth1);
             auths.add(auth2);
         }
-        return null;
+
+        User user = new User(username, "xiaoming", true, true, true,true, auths);
+        return user;
     }
 }
